@@ -1,3 +1,13 @@
+const router = express.Router();
+const {
+  protect,
+  adminOnly
+} = require("../middleware/auth");
+router.post(
+  "/",
+  protect,
+  adminOnly,
+  async (req, res) => {
 const express = require("express");
 
 const Product = require("../models/Product");
