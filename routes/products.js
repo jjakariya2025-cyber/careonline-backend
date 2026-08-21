@@ -3,11 +3,13 @@ const {
   protect,
   adminOnly
 } = require("../middleware/auth");
-router.post(
-  "/",
+router.put("/:id", async (req, res) => { 
+  router.delete(
+  "/:id",
   protect,
   adminOnly,
   async (req, res) => {
+
 const express = require("express");
 
 const Product = require("../models/Product");
