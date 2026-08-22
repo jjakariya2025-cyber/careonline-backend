@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Create Account — CareOnline</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+  <style>
+
+    * {
+      font-family: 'Hind Siliguri', sans-serif;
+    }
+
+    body {
+      background: #f7fafc;
+    }
+
+  </style>
+
+</head>
+
+
+<body class="min-h-screen flex items-center
+             justify-center px-4 py-8">
+
+
+<div class="w-full max-w-md">
+
+
+  <!-- Logo -->
+
+  <div class="text-center mb-6">
+
+    <a href="index.html"
+       class="inline-flex items-center gap-2">
+
+      <div
+        class="w-12 h-12 bg-blue-600
+               rounded-xl flex items-center
+               justify-center text-white">
+
+        <i class="fa-solid fa-heart-pulse text-xl"></i>
+
+      </div>
+
+
+      <div class="text-left">
+
+        <h1 class="text-2xl font-bold
+                   text-blue-600">
+
+          Care<span class="text-green-500">
+            Online
+          </span>
+
+        </h1>
+
+        <p class="text-xs text-gray-500">
+
+          আপনার যত্ন, আমাদের দায়িত্ব
+
+        </p>
+
+      </div>
+
+    </a>
+
+  </div>
+
+
+
+  <!-- Register Card -->
+
+  <div
+    class="bg-white rounded-3xl
+           shadow-xl p-6 md:p-8">
+
+    <div class="text-center mb-7">
+
+      <h2 class="text-2xl font-bold">
+
+        Create Account 🎉
+
+      </h2>
+
+      <p class="text-gray-500 mt-1">
+
+        CareOnline-এ নতুন account তৈরি করুন
+
+      </p>
+
+    </div>
+
+
+    <!-- Name -->
+
+    <label class="block font-semibold mb-2">
+
+      আপনার নাম
+
+      <span class="text-red-500">*</span>
+
+    </label>
+
+    <input
+      id="name"
+      type="text"
+      placeholder="আপনার পূর্ণ নাম"
+      class="w-full border border-gray-200
+             rounded-xl px-4 py-3
+             outline-none
+             focus:border-blue-500">
+
+
+    <!-- Phone -->
+
+    <label class="block font-semibold
+                  mb-2 mt-5">
+
+      মোবাইল নম্বর
+
+      <span class="text-red-500">*</span>
+
+    </label>
+
+    <input
+      id="phone"
+      type="tel"
+      maxlength="11"
+      placeholder="01XXXXXXXXX"
+      class="w-full border border-gray-200
+             rounded-xl px-4 py-3
+             outline-none
+             focus:border-blue-500">
+
+
+    <!-- Email -->
+
+    <label class="block font-semibold
+                  mb-2 mt-5">
+
+      Email
+
+      <span class="text-gray-400 text-sm">
+        (Optional)
+      </span>
+
+    </label>
+
+    <input
+      id="email"
+      type="email"
+      placeholder="example@gmail.com"
+      class="w-full border border-gray-200
+             rounded-xl px-4 py-3
+             outline-none
+             focus:border-blue-500">
+
+
+    <!-- Password -->
+
+    <label class="block font-semibold
+                  mb-2 mt-5">
+
+      Password
+
+      <span class="text-red-500">*</span>
+
+    </label>
+
+    <div class="relative">
+
+      <input
+        id="password"
+        type="password"
+        placeholder="কমপক্ষে 6 characters"
+        class="w-full border border-gray-200
+               rounded-xl px-4 py-3 pr-12
+               outline-none
+               focus:border-blue-500">
+
+      <button
+        onclick="togglePassword('password','eye1')"
+        class="absolute right-4 top-3.5
+               text-gray-400">
+
+        <i id="eye1"
+           class="fa-solid fa-eye"></i>
+
+      </button>
+
+    </div>
+
+
+    <!-- Confirm Password -->
+
+    <label class="block font-semibold
+                  mb-2 mt-5">
+
+      Confirm Password
+
+      <span class="text-red-500">*</span>
+
+    </label>
+
+    <div class="relative">
+
+      <input
+        id="confirmPassword"
+        type="password"
+        placeholder="Password আবার লিখুন"
+        class="w-full border border-gray-200
+               rounded-xl px-4 py-3 pr-12
+               outline-none
+               focus:border-blue-500">
+
+      <button
+        onclick="togglePassword('confirmPassword','eye2')"
+        class="absolute right-4 top-3.5
+               text-gray-400">
+
+        <i id="eye2"
+           class="fa-solid fa-eye"></i>
+
+      </button>
+
+    </div>
+
+
+    <!-- Terms -->
+
+    <label
+      class="flex items-start gap-3 mt-5
+             text-sm text-gray-600">
+
+      <input
+        id="terms"
+        type="checkbox"
+        class="w-4 h-4 mt-1">
+
+      <span>
+
+        আমি CareOnline-এর
+
+        <a href="#"
+           class="text-blue-600">
+          Terms & Conditions
+        </a>
+
+        এবং
+
+        <a href="#"
+           class="text-blue-600">
+          Privacy Policy
+        </a>
+
+        মেনে নিচ্ছি।
+
+      </span>
+
+    </label>
+
+
+    <!-- Register -->
+
+    <button
+      onclick="registerUser()"
+      class="w-full bg-blue-600
+             hover:bg-blue-700
+             text-white
+             py-3.5 rounded-xl
+             font-bold text-lg
+             mt-6">
+
+      <i class="fa-solid fa-user-plus mr-2"></i>
+
+      Create Account
+
+    </button>
+
+
+    <!-- Login -->
+
+    <p class="text-center
+              text-gray-500 mt-6">
+
+      আগে থেকেই Account আছে?
+
+      <a href="login.html"
+         class="text-blue-600
+                font-bold">
+
+        Login
+
+      </a>
+
+    </p>
+
+  </div>
+
+
+  <p class="text-center
+            text-xs text-gray-400 mt-6">
+
+    © 2026 CareOnline
+
+  </p>
+
+</div>
+
+
+
+<script>
+
+  function togglePassword(
+    inputId,
+    iconId
+  ) {
+
+    const input =
+      document.getElementById(inputId);
+
+    const icon =
+      document.getElementById(iconId);
+
+
+    if (input.type === "password") {
+
+      input.type = "text";
+
+      icon.classList.remove(
+        "fa-eye"
+      );
+
+      icon.classList.add(
+        "fa-eye-slash"
+      );
+
+    } else {
+
+      input.type = "password";
+
+      icon.classList.remove(
+        "fa-eye-slash"
+      );
+
+      icon.classList.add(
+        "fa-eye"
+      );
+
+    }
+
+  }
+
+
+
+  function registerUser() {
+
+    const name =
+      document.getElementById(
+        "name"
+      ).value.trim();
+
+
+    const phone =
+      document.getElementById(
+        "phone"
+      ).value.trim();
+
+
+    const email =
+      document.getElementById(
+        "email"
+      ).value.trim();
+
+
+    const password =
+      document.getElementById(
+        "password"
+      ).value;
+
+
+    const confirmPassword =
+      document.getElementById(
+        "confirmPassword"
+      ).value;
+
+
+    const terms =
+      document.getElementById(
+        "terms"
+      ).checked;
+
+
+    if (!name) {
+
+      alert("আপনার নাম লিখুন।");
+
+      return;
+
+    }
+
+
+    if (!/^01[0-9]{9}$/.test(phone)) {
+
+      alert(
+        "সঠিক ১১ সংখ্যার বাংলাদেশি মোবাইল নম্বর দিন।"
+      );
+
+      return;
+
+    }
+
+
+    if (password.length < 6) {
+
+      alert(
+        "Password কমপক্ষে 6 characters হতে হবে।"
+      );
+
+      return;
+
+    }
+
+
+    if (password !== confirmPassword) {
+
+      alert(
+        "দুইটি Password একই নয়।"
+      );
+
+      return;
+
+    }
+
+
+    if (!terms) {
+
+      alert(
+        "Terms & Conditions মেনে নিতে হবে।"
+      );
+
+      return;
+
+    }
+
+
+    /*
+      DEMO USER DATA
+
+      Real website-এ password
+      localStorage-এ রাখা উচিত নয়।
+
+      Backend + database ব্যবহার করতে হবে।
+    */
+
+    const user = {
+
+      name: name,
+
+      phone: phone,
+
+      email: email
+
+    };
+
+
+    localStorage.setItem(
+      "careOnlineUser",
+      JSON.stringify(user)
+    );
+
+
+    localStorage.setItem(
+      "careOnlineLoggedIn",
+      "true"
+    );
+
+
+    alert(
+      "Account সফলভাবে তৈরি হয়েছে ✅"
+    );
+
+
+    window.location.href =
+      "account.html";
+
+  }
+
+</script>
+
+</body>
+
+</html>

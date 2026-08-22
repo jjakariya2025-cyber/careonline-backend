@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Login — CareOnline</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+  <style>
+    * {
+      font-family: 'Hind Siliguri', sans-serif;
+    }
+
+    body {
+      background: #f7fafc;
+    }
+  </style>
+</head>
+
+
+<body class="min-h-screen flex items-center justify-center px-4">
+
+
+  <!-- Background -->
+
+  <div class="fixed inset-0
+              bg-gradient-to-br
+              from-blue-50 via-white
+              to-green-50 -z-10">
+  </div>
+
+
+  <!-- Main Card -->
+
+  <div class="w-full max-w-md">
+
+
+    <!-- Logo -->
+
+    <div class="text-center mb-6">
+
+      <a href="index.html"
+         class="inline-flex items-center gap-2">
+
+        <div
+          class="w-12 h-12 bg-blue-600
+                 rounded-xl
+                 flex items-center
+                 justify-center text-white">
+
+          <i class="fa-solid fa-heart-pulse text-xl"></i>
+
+        </div>
+
+
+        <div class="text-left">
+
+          <h1 class="text-2xl font-bold
+                     text-blue-600">
+
+            Care<span class="text-green-500">
+              Online
+            </span>
+
+          </h1>
+
+          <p class="text-xs text-gray-500">
+
+            আপনার যত্ন, আমাদের দায়িত্ব
+
+          </p>
+
+        </div>
+
+      </a>
+
+    </div>
+
+
+    <!-- Login Box -->
+
+    <div
+      class="bg-white rounded-3xl
+             shadow-xl p-6 md:p-8">
+
+      <div class="text-center mb-7">
+
+        <h2 class="text-2xl font-bold">
+
+          Welcome Back 👋
+
+        </h2>
+
+        <p class="text-gray-500 mt-1">
+
+          আপনার CareOnline account-এ Login করুন
+
+        </p>
+
+      </div>
+
+
+      <!-- Phone -->
+
+      <label class="block font-semibold mb-2">
+
+        মোবাইল নম্বর
+
+      </label>
+
+      <div class="relative">
+
+        <i class="fa-solid fa-phone
+                  absolute left-4 top-4
+                  text-gray-400"></i>
+
+        <input
+          id="loginPhone"
+          type="tel"
+          placeholder="01XXXXXXXXX"
+          maxlength="11"
+          class="w-full border
+                 border-gray-200
+                 rounded-xl py-3
+                 pl-11 pr-4
+                 outline-none
+                 focus:border-blue-500">
+
+      </div>
+
+
+      <!-- Password -->
+
+      <label class="block font-semibold
+                    mb-2 mt-5">
+
+        Password
+
+      </label>
+
+      <div class="relative">
+
+        <i class="fa-solid fa-lock
+                  absolute left-4 top-4
+                  text-gray-400"></i>
+
+        <input
+          id="loginPassword"
+          type="password"
+          placeholder="আপনার password"
+          class="w-full border
+                 border-gray-200
+                 rounded-xl py-3
+                 pl-11 pr-12
+                 outline-none
+                 focus:border-blue-500">
+
+        <button
+          onclick="togglePassword()"
+          class="absolute right-4 top-3.5
+                 text-gray-400">
+
+          <i id="eyeIcon"
+             class="fa-solid fa-eye"></i>
+
+        </button>
+
+      </div>
+
+
+      <!-- Remember -->
+
+      <div class="flex justify-between
+                  items-center mt-4">
+
+        <label
+          class="flex items-center gap-2
+                 text-sm text-gray-600">
+
+          <input type="checkbox"
+                 class="w-4 h-4">
+
+          Remember me
+
+        </label>
+
+
+        <button
+          onclick="forgotPassword()"
+          class="text-blue-600
+                 text-sm font-semibold">
+
+          Forgot Password?
+
+        </button>
+
+      </div>
+
+
+      <!-- Login Button -->
+
+      <button
+        onclick="login()"
+        class="w-full bg-blue-600
+               hover:bg-blue-700
+               text-white
+               py-3.5 rounded-xl
+               font-bold text-lg
+               mt-6">
+
+        <i class="fa-solid fa-right-to-bracket mr-2"></i>
+
+        Login
+
+      </button>
+
+
+      <!-- Divider -->
+
+      <div class="flex items-center
+                  gap-3 my-6">
+
+        <div class="h-px bg-gray-200 flex-1"></div>
+
+        <span class="text-sm text-gray-400">
+          অথবা
+        </span>
+
+        <div class="h-px bg-gray-200 flex-1"></div>
+
+      </div>
+
+
+      <!-- Register -->
+
+      <p class="text-center text-gray-500">
+
+        নতুন Customer?
+
+        <a href="register.html"
+           class="text-blue-600
+                  font-bold">
+
+          Create Account
+
+        </a>
+
+      </p>
+
+    </div>
+
+
+    <!-- Footer -->
+
+    <p class="text-center
+              text-xs text-gray-400 mt-6">
+
+      © 2026 CareOnline. All Rights Reserved.
+
+    </p>
+
+  </div>
+
+
+
+<script>
+
+  function togglePassword() {
+
+    const password =
+      document.getElementById(
+        "loginPassword"
+      );
+
+    const icon =
+      document.getElementById(
+        "eyeIcon"
+      );
+
+
+    if (password.type === "password") {
+
+      password.type = "text";
+
+      icon.classList.remove(
+        "fa-eye"
+      );
+
+      icon.classList.add(
+        "fa-eye-slash"
+      );
+
+    } else {
+
+      password.type = "password";
+
+      icon.classList.remove(
+        "fa-eye-slash"
+      );
+
+      icon.classList.add(
+        "fa-eye"
+      );
+
+    }
+
+  }
+
+
+
+  function login() {
+
+    const phone =
+      document.getElementById(
+        "loginPhone"
+      ).value.trim();
+
+
+    const password =
+      document.getElementById(
+        "loginPassword"
+      ).value.trim();
+
+
+    if (!phone) {
+
+      alert("মোবাইল নম্বর দিন।");
+
+      return;
+
+    }
+
+
+    if (!/^01[0-9]{9}$/.test(phone)) {
+
+      alert(
+        "সঠিক ১১ সংখ্যার মোবাইল নম্বর দিন।"
+      );
+
+      return;
+
+    }
+
+
+    if (!password) {
+
+      alert("Password দিন।");
+
+      return;
+
+    }
+
+
+    /*
+      Demo Login
+
+      Real website-এ এখানে
+      Backend API ব্যবহার হবে।
+    */
+
+    localStorage.setItem(
+      "careOnlineLoggedIn",
+      "true"
+    );
+
+    localStorage.setItem(
+      "careOnlinePhone",
+      phone
+    );
+
+
+    alert("Login সফল হয়েছে ✅");
+
+    window.location.href =
+      "account.html";
+
+  }
+
+
+
+  function forgotPassword() {
+
+    alert(
+      "Password reset system Backend যোগ করার পর কাজ করবে।"
+    );
+
+  }
+
+</script>
+
+</body>
+</html>

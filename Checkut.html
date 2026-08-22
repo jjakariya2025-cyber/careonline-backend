@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Checkout — CareOnline</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+  <style>
+
+    * {
+      font-family: 'Hind Siliguri', sans-serif;
+    }
+
+    body {
+      background: #f7fafc;
+    }
+
+    .payment-option {
+      transition: .2s;
+    }
+
+    .payment-option:hover {
+      transform: translateY(-2px);
+    }
+
+  </style>
+
+</head>
+
+
+<body class="text-gray-800 pb-10">
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="bg-white shadow-sm">
+
+  <div class="bg-blue-600 text-white text-center text-sm py-2">
+
+    🚚 CareOnline —
+    আপনার যত্ন, আমাদের দায়িত্ব
+
+  </div>
+
+
+  <div class="max-w-7xl mx-auto px-4 py-4">
+
+    <div class="flex items-center justify-between">
+
+      <!-- Logo -->
+
+      <a href="index.html"
+         class="flex items-center gap-2">
+
+        <div
+          class="w-11 h-11 bg-blue-600
+                 rounded-xl flex items-center
+                 justify-center text-white">
+
+          <i class="fa-solid fa-heart-pulse text-xl"></i>
+
+        </div>
+
+
+        <div>
+
+          <h1 class="text-xl md:text-2xl
+                     font-bold text-blue-600">
+
+            Care<span class="text-green-500">
+              Online
+            </span>
+
+          </h1>
+
+          <p class="text-[10px] text-gray-500">
+
+            আপনার যত্ন, আমাদের দায়িত্ব
+
+          </p>
+
+        </div>
+
+      </a>
+
+
+      <!-- Secure -->
+
+      <div
+        class="hidden md:flex items-center
+               gap-2 text-green-600">
+
+        <i class="fa-solid fa-lock"></i>
+
+        <span class="text-sm font-semibold">
+
+          Secure Checkout
+
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     PAGE TITLE
+===================================================== -->
+
+<section class="max-w-7xl mx-auto px-4 pt-8">
+
+  <div class="flex items-center gap-2
+              text-sm text-gray-500">
+
+    <a href="index.html"
+       class="hover:text-blue-600">
+
+      Home
+
+    </a>
+
+    <i class="fa-solid fa-chevron-right text-xs"></i>
+
+    <a href="products.html"
+       class="hover:text-blue-600">
+
+      Products
+
+    </a>
+
+    <i class="fa-solid fa-chevron-right text-xs"></i>
+
+    <span class="text-gray-800">
+
+      Checkout
+
+    </span>
+
+  </div>
+
+
+  <h2 class="text-3xl font-bold mt-5">
+
+    Checkout
+
+  </h2>
+
+  <p class="text-gray-500">
+
+    আপনার তথ্য দিয়ে অর্ডার সম্পন্ন করুন।
+
+  </p>
+
+</section>
+
+
+
+<!-- =====================================================
+     CHECKOUT CONTENT
+===================================================== -->
+
+<section class="max-w-7xl mx-auto px-4 py-7">
+
+  <div class="grid lg:grid-cols-3 gap-6">
+
+
+    <!-- =================================================
+         LEFT SIDE
+    ================================================== -->
+
+    <div class="lg:col-span-2 space-y-6">
+
+
+      <!-- CUSTOMER INFORMATION -->
+
+      <div class="bg-white rounded-2xl
+                  shadow-sm p-5 md:p-7">
+
+        <div class="flex items-center gap-3 mb-6">
+
+          <div
+            class="w-10 h-10 rounded-xl
+                   bg-blue-50 text-blue-600
+                   flex items-center
+                   justify-center">
+
+            <i class="fa-solid fa-user"></i>
+
+          </div>
+
+          <div>
+
+            <h3 class="text-xl font-bold">
+
+              Customer Information
+
+            </h3>
+
+            <p class="text-sm text-gray-500">
+
+              আপনার সঠিক তথ্য দিন
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- Name -->
+
+        <label class="block mb-2 font-semibold">
+
+          আপনার নাম
+
+          <span class="text-red-500">*</span>
+
+        </label>
+
+        <input
+          id="customerName"
+          type="text"
+          placeholder="আপনার পূর্ণ নাম লিখুন"
+          class="w-full border border-gray-200
+                 rounded-xl px-4 py-3
+                 outline-none
+                 focus:border-blue-500">
+
+
+        <!-- Phone -->
+
+        <label class="block mt-5 mb-2 font-semibold">
+
+          মোবাইল নম্বর
+
+          <span class="text-red-500">*</span>
+
+        </label>
+
+        <input
+          id="customerPhone"
+          type="tel"
+          placeholder="01XXXXXXXXX"
+          maxlength="11"
+          class="w-full border border-gray-200
+                 rounded-xl px-4 py-3
+                 outline-none
+                 focus:border-blue-500">
+
+
+        <!-- Email -->
+
+        <label class="block mt-5 mb-2 font-semibold">
+
+          Email
+          <span class="text-gray-400 text-sm">
+            (Optional)
+          </span>
+
+        </label>
+
+        <input
+          id="customerEmail"
+          type="email"
+          placeholder="example@gmail.com"
+          class="w-full border border-gray-200
+                 rounded-xl px-4 py-3
+                 outline-none
+                 focus:border-blue-500">
+
+      </div>
+
+
+
+      <!-- DELIVERY ADDRESS -->
+
+      <div class="bg-white rounded-2xl
+                  shadow-sm p-5 md:p-7">
+
+        <div class="flex items-center gap-3 mb-6">
+
+          <div
+            class="w-10 h-10 rounded-xl
+                   bg-green-50 text-green-600
+                   flex items-center
+                   justify-center">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+          </div>
+
+          <div>
+
+            <h3 class="text-xl font-bold">
+
+              Delivery Address
+
+            </h3>
+
+            <p class="text-sm text-gray-500">
+
+              যেখানে Product পাঠাতে চান
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- Division -->
+
+        <label class="block mb-2 font-semibold">
+
+          বিভাগ
+
+          <span class="text-red-500">*</span>
+
+        </label>
+
+        <select
+          id="division"
+          class="w-full border border-gray-200
+                 rounded-xl px-4 py-3
+                 outline-none">
+
+          <option value="">
+            বিভাগ নির্বাচন করুন
+          </option>
+
+          <option>ঢাকা</option>
+          <option>চট্টগ্রাম</option>
+          <option>রাজশাহী</option>
+          <option>খুলনা</option>
+          <option>বরিশাল</option>
+          <option>সিলেট</option>
+          <option>রংপুর</option>
+          <option>ময়মনসিংহ</option>
+
+        </select>
+
+
+        <!-- District -->
+
+        <label class="block mt-5 mb-2 font-semibold">
+
+          জেলা
+
+          <span class="text-red-500">*</span>
+
+        </label>
+
+        <input
+          id="district"
+          type="text"
+          placeholder="যেমন: দিনাজপুর"
+          class="w-full border border-gray-200
+                 rounded-xl px-4 py-3
+                 outline-none">
+
+
+        <!-- Area -->
+
+        <label class="block mt-5 mb-2 font-semibold">
+
+          এলাকা / থানা
+
+          <span class="text-red-500">*</span>
+
+        </label>
+
+        <input
+          id="area"
+          type="text"
+          placeholder="থানা / এলাকার নাম"
+          class="w-full border border-gray-200
+                 rounded-xl px-4 py-3
+                 outline-none">
+
+
+        <!-- Full Address -->
+
+        <label class="block mt-5 mb-2 font-semibold">
+
+          বিস্তারিত ঠিকানা
+
+          <span class="text-red-500">*</span>
+
+        </label>
+
+        <textarea
+          id="fullAddress"
+          rows="4"
+          placeholder="বাড়ি নম্বর, রোড, গ্রাম/মহল্লা..."
+          class="w-full border border-gray-200
+                 rounded-xl px-4 py-3
+                 outline-none resize-none"></textarea>
+
+
+        <!-- Note -->
+
+        <label class="block mt-5 mb-2 font-semibold">
+
+          Order Note
+
+          <span class="text-gray-400 text-sm">
+            (Optional)
+          </span>
+
+        </label>
+
+        <textarea
+          id="orderNote"
+          rows="3"
+          placeholder="কোনো বিশেষ নির্দেশনা থাকলে লিখুন..."
+          class="w-full border border-gray-200
+                 rounded-xl px-4 py-3
+                 outline-none resize-none"></textarea>
+
+      </div>
+
+
+
+      <!-- DELIVERY METHOD -->
+
+      <div class="bg-white rounded-2xl
+                  shadow-sm p-5 md:p-7">
+
+        <h3 class="text-xl font-bold mb-5">
+
+          🚚 Delivery Method
+
+        </h3>
+
+
+        <div class="space-y-3">
+
+
+          <label
+            class="flex items-center
+                   justify-between
+                   border-2 border-blue-500
+                   bg-blue-50
+                   rounded-xl p-4
+                   cursor-pointer">
+
+            <div class="flex items-center gap-3">
+
+              <input
+                type="radio"
+                name="delivery"
+                value="80"
+                checked
+                onchange="changeDelivery(80)"
+                class="w-5 h-5">
+
+              <div>
+
+                <h4 class="font-bold">
+
+                  Standard Delivery
+
+                </h4>
+
+                <p class="text-sm text-gray-500">
+
+                  সাধারণ ডেলিভারি
+
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <strong class="text-blue-600">
+
+              ৳80
+
+            </strong>
+
+          </label>
+
+
+          <label
+            class="flex items-center
+                   justify-between
+                   border border-gray-200
+                   rounded-xl p-4
+                   cursor-pointer">
+
+            <div class="flex items-center gap-3">
+
+              <input
+                type="radio"
+                name="delivery"
+                value="120"
+                onchange="changeDelivery(120)"
+                class="w-5 h-5">
+
+              <div>
+
+                <h4 class="font-bold">
+
+                  Express Delivery
+
+                </h4>
+
+                <p class="text-sm text-gray-500">
+
+                  দ্রুত ডেলিভারি
+
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <strong class="text-blue-600">
+
+              ৳120
+
+            </strong>
+
+          </label>
+
+
+        </div>
+
+      </div>
+
+
+
+      <!-- PAYMENT -->
+
+      <div class="bg-white rounded-2xl
+                  shadow-sm p-5 md:p-7">
+
+        <div class="flex items-center gap-3 mb-6">
+
+          <div
+            class="w-10 h-10 rounded-xl
+                   bg-purple-50
+                   text-purple-600
+                   flex items-center
+                   justify-center">
+
+            <i class="fa-solid fa-credit-card"></i>
+
+          </div>
+
+          <div>
+
+            <h3 class="text-xl font-bold">
+
+              Payment Method
+
+            </h3>
+
+            <p class="text-sm text-gray-500">
+
+              আপনার পছন্দের Payment Method নির্বাচন করুন
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+
+
+          <!-- bKash -->
+
+          <label
+            class="payment-option
+                   border border-gray-200
+                   rounded-xl p-4
+                   cursor-pointer
+                   text-center">
+
+            <input
+              type="radio"
+              name="payment"
+              value="bkash"
+              class="hidden"
+              onchange="selectPayment('bkash')">
+
+            <div
+              class="w-12 h-12 mx-auto
+                     rounded-full
+                     bg-pink-50
+                     text-pink-600
+                     flex items-center
+                     justify-center">
+
+              <i class="fa-solid fa-mobile-screen-button"></i>
+
+            </div>
+
+            <p class="font-bold mt-2">
+              bKash
+            </p>
+
+          </label>
+
+
+          <!-- Nagad -->
+
+          <label
+            class="payment-option
+                   border border-gray-200
+                   rounded-xl p-4
+                   cursor-pointer
+                   text-center">
+
+            <input
+              type="radio"
+              name="payment"
+              value="nagad"
+              class="hidden"
+              onchange="selectPayment('nagad')">
+
+            <div
+              class="w-12 h-12 mx-auto
+                     rounded-full
+                     bg-orange-50
+                     text-orange-600
+                     flex items-center
+                     justify-center">
+
+              <i class="fa-solid fa-wallet"></i>
+
+            </div>
+
+            <p class="font-bold mt-2">
+              Nagad
+            </p>
+
+          </label>
+
+
+          <!-- Rocket -->
+
+          <label
+            class="payment-option
+                   border border-gray-200
+                   rounded-xl p-4
+                   cursor-pointer
+                   text-center">
+
+            <input
+              type="radio"
+              name="payment"
+              value="rocket"
+              class="hidden"
+              onchange="selectPayment('rocket')">
+
+            <div
+              class="w-12 h-12 mx-auto
+                     rounded-full
+                     bg-purple-50
+                     text-purple-600
+                     flex items-center
+                     justify-center">
+
+              <i class="fa-solid fa-building-columns"></i>
+
+            </div>
+
+            <p class="font-bold mt-2">
+              Rocket
+            </p>
+
+          </label>
+
+
+          <!-- COD -->
+
+          <label
+            class="payment-option
+                   border border-gray-200
+                   rounded-xl p-4
+                   cursor-pointer
+                   text-center">
+
+            <input
+              type="radio"
+              name="payment"
+              value="cod"
+              checked
+              class="hidden"
+              onchange="selectPayment('cod')">
+
+            <div
+              class="w-12 h-12 mx-auto
+                     rounded-full
+                     bg-green-50
+                     text-green-600
+                     flex items-center
+                     justify-center">
+
+              <i class="fa-solid fa-money-bill-wave"></i>
+
+            </div>
+
+            <p class="font-bold mt-2">
+              Cash on Delivery
+            </p>
+
+          </label>
+
+        </div>
+
+
+        <!-- Online Payment Box -->
+
+        <div
+          id="onlinePaymentBox"
+          class="hidden mt-5
+                 bg-gray-50
+                 rounded-xl p-5">
+
+          <h4 class="font-bold">
+
+            Online Payment
+
+          </h4>
+
+          <p class="text-sm text-gray-500 mt-1">
+
+            Payment gateway যুক্ত করার পর
+            এখানে নিরাপদ payment process হবে।
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         RIGHT : ORDER SUMMARY
+    ================================================== -->
+
+    <div>
+
+      <div
+        class="bg-white rounded-2xl
+               shadow-sm p-5
+               lg:sticky lg:top-24">
+
+        <h3 class="text-xl font-bold">
+
+          🧾 Order Summary
+
+        </h3>
+
+
+        <!-- Products -->
+
+        <div id="orderItems"
+             class="mt-5 space-y-4">
+
+          <!-- JS -->
+
+        </div>
+
+
+        <div
+          class="border-t mt-5 pt-5 space-y-3">
+
+
+          <!-- Subtotal -->
+
+          <div class="flex justify-between">
+
+            <span class="text-gray-500">
+
+              Subtotal
+
+            </span>
+
+            <span id="subtotal">
+
+              ৳0
+
+            </span>
+
+          </div>
+
+
+          <!-- Delivery -->
+
+          <div class="flex justify-between">
+
+            <span class="text-gray-500">
+
+              Delivery Charge
+
+            </span>
+
+            <span id="deliveryCharge">
+
+              ৳80
+
+            </span>
+
+          </div>
+
+
+          <!-- Discount -->
+
+          <div
+            class="flex justify-between
+                   text-green-600">
+
+            <span>
+
+              Discount
+
+            </span>
+
+            <span>
+
+              - ৳0
+
+            </span>
+
+          </div>
+
+
+          <!-- Total -->
+
+          <div
+            class="border-t pt-4
+                   flex justify-between
+                   items-center">
+
+            <span class="text-lg font-bold">
+
+              Total
+
+            </span>
+
+            <span
+              id="grandTotal"
+              class="text-2xl
+                     font-bold text-blue-600">
+
+              ৳80
+
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- Place Order -->
+
+        <button
+          onclick="placeOrder()"
+          class="w-full mt-6
+                 bg-blue-600
+                 hover:bg-blue-700
+                 text-white
+                 py-4 rounded-xl
+                 font-bold text-lg">
+
+          <i class="fa-solid fa-check mr-2"></i>
+
+          Place Order
+
+        </button>
+
+
+        <!-- Security -->
+
+        <div
+          class="flex items-center
+                 gap-2 justify-center
+                 text-xs text-gray-500
+                 mt-4">
+
+          <i class="fa-solid fa-lock
+                    text-green-600"></i>
+
+          Secure & Protected Checkout
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SUCCESS MODAL
+===================================================== -->
+
+<div
+  id="successModal"
+  class="hidden fixed inset-0
+         bg-black/50 z-[100]
+         flex items-center
+         justify-center px-4">
+
+  <div
+    class="bg-white rounded-3xl
+           max-w-md w-full
+           p-7 text-center">
+
+    <div
+      class="w-20 h-20 mx-auto
+             rounded-full bg-green-50
+             text-green-600
+             flex items-center
+             justify-center">
+
+      <i class="fa-solid fa-check
+                text-4xl"></i>
+
+    </div>
+
+
+    <h2 class="text-2xl
+               font-bold mt-5">
+
+      Order Received! 🎉
+
+    </h2>
+
+
+    <p class="text-gray-500 mt-2">
+
+      আপনার অর্ডারটি সফলভাবে
+      গ্রহণ করা হয়েছে।
+
+    </p>
+
+
+    <div
+      class="bg-gray-50 rounded-xl
+             p-4 mt-5">
+
+      <p class="text-sm text-gray-500">
+
+        Order ID
+
+      </p>
+
+      <p
+        id="orderId"
+        class="text-xl
+               font-bold text-blue-600">
+
+        CO-000000
+
+      </p>
+
+    </div>
+
+
+    <button
+      onclick="goHome()"
+      class="w-full mt-5
+             bg-blue-600
+             text-white py-3
+             rounded-xl font-bold">
+
+      Back to Home
+
+    </button>
+
+  </div>
+
+</div>
+
+
+
+<script>
+
+  // =====================================================
+  // DEMO CART
+  // =====================================================
+
+  let cart = [
+
+    {
+      name: "Vitamin C",
+      price: 250,
+      qty: 1
+    },
+
+    {
+      name: "Personal Care",
+      price: 350,
+      qty: 1
+    }
+
+  ];
+
+
+  let deliveryCharge = 80;
+
+
+  // =====================================================
+  // LOAD ORDER ITEMS
+  // =====================================================
+
+  function loadOrderItems() {
+
+    const container =
+      document.getElementById("orderItems");
+
+
+    if (cart.length === 0) {
+
+      container.innerHTML = `
+
+        <div class="text-center py-8">
+
+          <i class="fa-solid fa-cart-shopping
+                    text-4xl text-gray-300"></i>
+
+          <p class="text-gray-500 mt-3">
+
+            আপনার Cart খালি।
+
+          </p>
+
+        </div>
+
+      `;
+
+      updateTotals();
+
+      return;
+
+    }
+
+
+    container.innerHTML =
+      cart.map((item, index) => {
+
+        return `
+
+          <div
+            class="flex gap-3
+                   border-b pb-4">
+
+            <div
+              class="w-16 h-16
+                     rounded-xl
+                     bg-blue-50
+                     flex items-center
+                     justify-center">
+
+              <i class="fa-solid fa-box
+                        text-blue-500
+                        text-2xl"></i>
+
+            </div>
+
+
+            <div class="flex-1">
+
+              <h4 class="font-semibold">
+
+                ${item.name}
+
+              </h4>
+
+              <p class="text-sm text-gray-500">
+
+                Quantity:
+                ${item.qty}
+
+              </p>
+
+              <p class="text-blue-600
+                        font-bold mt-1">
+
+                ৳${item.price * item.qty}
+
+              </p>
+
+            </div>
+
+          </div>
+
+        `;
+
+      }).join("");
+
+
+    updateTotals();
+
+  }
+
+
+  // =====================================================
+  // TOTAL
+  // =====================================================
+
+  function updateTotals() {
+
+    let subtotal = 0;
+
+
+    cart.forEach(item => {
+
+      subtotal +=
+        item.price * item.qty;
+
+    });
+
+
+    const total =
+      subtotal + deliveryCharge;
+
+
+    document.getElementById("subtotal")
+      .innerText =
+      "৳" + subtotal;
+
+
+    document.getElementById("deliveryCharge")
+      .innerText =
+      "৳" + deliveryCharge;
+
+
+    document.getElementById("grandTotal")
+      .innerText =
+      "৳" + total;
+
+  }
+
+
+  // =====================================================
+  // DELIVERY
+  // =====================================================
+
+  function changeDelivery(price) {
+
+    deliveryCharge = price;
+
+    updateTotals();
+
+  }
+
+
+  // =====================================================
+  // PAYMENT
+  // =====================================================
+
+  function selectPayment(method) {
+
+    const box =
+      document.getElementById(
+        "onlinePaymentBox"
+      );
+
+
+    if (
+      method === "bkash" ||
+      method === "nagad" ||
+      method === "rocket"
+    ) {
+
+      box.classList.remove("hidden");
+
+      box.innerHTML = `
+
+        <h4 class="font-bold">
+
+          Online Payment Selected
+
+        </h4>
+
+        <p class="text-sm
+                  text-gray-500 mt-2">
+
+          ${method.toUpperCase()}
+          payment gateway পরবর্তীতে
+          এখানে যুক্ত করা হবে।
+
+        </p>
+
+      `;
+
+    } else {
+
+      box.classList.add("hidden");
+
+    }
+
+  }
+
+
+  // =====================================================
+  // PLACE ORDER
+  // =====================================================
+
+  function placeOrder() {
+
+    const name =
+      document.getElementById(
+        "customerName"
+      ).value.trim();
+
+
+    const phone =
+      document.getElementById(
+        "customerPhone"
+      ).value.trim();
+
+
+    const division =
+      document.getElementById(
+        "division"
+      ).value;
+
+
+    const district =
+      document.getElementById(
+        "district"
+      ).value.trim();
+
+
+    const area =
+      document.getElementById(
+        "area"
+      ).value.trim();
+
+
+    const address =
+      document.getElementById(
+        "fullAddress"
+      ).value.trim();
+
+
+    // Validation
+
+    if (!name) {
+
+      alert("আপনার নাম লিখুন।");
+
+      return;
+
+    }
+
+
+    if (!phone) {
+
+      alert("মোবাইল নম্বর লিখুন।");
+
+      return;
+
+    }
+
+
+    if (!/^01[0-9]{9}$/.test(phone)) {
+
+      alert(
+        "সঠিক ১১ সংখ্যার বাংলাদেশি মোবাইল নম্বর দিন।"
+      );
+
+      return;
+
+    }
+
+
+    if (!division) {
+
+      alert("বিভাগ নির্বাচন করুন।");
+
+      return;
+
+    }
+
+
+    if (!district) {
+
+      alert("জেলা লিখুন।");
+
+      return;
+
+    }
+
+
+    if (!area) {
+
+      alert("এলাকার নাম লিখুন।");
+
+      return;
+
+    }
+
+
+    if (!address) {
+
+      alert("বিস্তারিত ঠিকানা লিখুন।");
+
+      return;
+
+    }
+
+
+    if (cart.length === 0) {
+
+      alert("আপনার Cart খালি।");
+
+      return;
+
+    }
+
+
+    // Generate Demo Order ID
+
+    const random =
+      Math.floor(
+        100000 +
+        Math.random() * 900000
+      );
+
+
+    const orderId =
+      "CO-" + random;
+
+
+    document.getElementById("orderId")
+      .innerText = orderId;
+
+
+    document.getElementById(
+      "successModal"
+    ).classList.remove("hidden");
+
+
+    /*
+      IMPORTANT:
+
+      বাস্তব ওয়েবসাইটে এখানে:
+
+      1. Backend API call
+      2. Database-এ order save
+      3. Payment verification
+      4. Stock decrease
+      5. Admin notification
+      6. Customer order tracking
+
+      যুক্ত করতে হবে।
+    */
+
+  }
+
+
+  // =====================================================
+  // HOME
+  // =====================================================
+
+  function goHome() {
+
+    window.location.href =
+      "index.html";
+
+  }
+
+
+  // =====================================================
+  // START
+  // =====================================================
+
+  loadOrderItems();
+
+</script>
+
+
+</body>
+
+</html>

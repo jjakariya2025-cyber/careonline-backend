@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CareOnline — স্বাস্থ্যসেবা এখন হাতের মুঠোয়</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+  <style>
+    * {
+      font-family: 'Hind Siliguri', sans-serif;
+    }
+
+    body {
+      background: #f7fafc;
+    }
+
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .product-card {
+      transition: .25s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,.08);
+    }
+  </style>
+</head>
+
+<body class="text-gray-800">
+
+<!-- ================= HEADER ================= -->
+<header class="bg-white sticky top-0 z-50 shadow-sm">
+
+  <!-- Top Bar -->
+  <div class="bg-blue-600 text-white text-center text-sm py-2">
+    🚚 সারা বাংলাদেশে ডেলিভারি | 💙 CareOnline-এর সাথে থাকুন
+  </div>
+
+  <!-- Main Header -->
+  <div class="max-w-7xl mx-auto px-4 py-4">
+
+    <div class="flex items-center justify-between gap-3">
+
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2">
+
+        <div class="w-11 h-11 bg-blue-600 rounded-xl flex items-center justify-center text-white">
+          <i class="fa-solid fa-heart-pulse text-xl"></i>
+        </div>
+
+        <div>
+          <h1 class="text-xl md:text-2xl font-bold text-blue-600">
+            Care<span class="text-green-500">Online</span>
+          </h1>
+
+          <p class="text-[10px] text-gray-500">
+            আপনার যত্ন, আমাদের দায়িত্ব
+          </p>
+        </div>
+
+      </a>
+
+      <!-- Desktop Search -->
+      <div class="hidden md:flex flex-1 max-w-xl relative">
+
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="Medicine, Personal Care বা Product খুঁজুন..."
+          class="w-full border border-gray-200 rounded-xl py-3 px-4 pr-12 outline-none focus:border-blue-500"
+        >
+
+        <button
+          onclick="searchProducts()"
+          class="absolute right-1 top-1 bottom-1 w-11 bg-blue-600 text-white rounded-lg">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+      </div>
+
+      <!-- Actions -->
+      <div class="flex items-center gap-3">
+
+        <button class="hidden md:block text-gray-600 hover:text-blue-600">
+          <i class="fa-regular fa-user text-xl"></i>
+        </button>
+
+        <button
+          onclick="openCart()"
+          class="relative text-gray-700">
+
+          <i class="fa-solid fa-cart-shopping text-xl"></i>
+
+          <span
+            id="cartCount"
+            class="absolute -top-3 -right-3 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+            0
+          </span>
+
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- Mobile Search -->
+    <div class="md:hidden mt-4 relative">
+
+      <input
+        id="mobileSearchInput"
+        type="text"
+        placeholder="কী খুঁজছেন?"
+        class="w-full border border-gray-200 rounded-xl py-3 px-4 pr-12 outline-none"
+      >
+
+      <button
+        onclick="mobileSearchProducts()"
+        class="absolute right-1 top-1 bottom-1 w-11 bg-blue-600 text-white rounded-lg">
+        <i class="fa-solid fa-search"></i>
+      </button>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+<section class="bg-gradient-to-r from-blue-600 to-cyan-500 text-white">
+
+  <div class="max-w-7xl mx-auto px-4 py-12 md:py-20">
+
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+
+      <div>
+
+        <span class="inline-block bg-white/20 px-4 py-2 rounded-full text-sm mb-4">
+          💙 Trusted Healthcare Store
+        </span>
+
+        <h2 class="text-3xl md:text-5xl font-bold leading-tight">
+          আপনার স্বাস্থ্য,
+          <br>
+          এখন আরও সহজ।
+        </h2>
+
+        <p class="mt-4 text-blue-50 text-lg">
+          প্রয়োজনীয় স্বাস্থ্য ও Personal Care পণ্য
+          সহজেই খুঁজে নিন CareOnline-এ।
+        </p>
+
+        <button
+          onclick="scrollToProducts()"
+          class="mt-7 bg-white text-blue-600 font-bold px-6 py-3 rounded-xl shadow-lg hover:scale-105 transition">
+
+          এখনই শপিং করুন
+          <i class="fa-solid fa-arrow-right ml-2"></i>
+
+        </button>
+
+      </div>
+
+
+      <div class="hidden md:flex justify-center">
+
+        <div class="w-72 h-72 bg-white/10 rounded-full flex items-center justify-center">
+
+          <div class="w-52 h-52 bg-white rounded-full flex items-center justify-center shadow-2xl">
+
+            <i class="fa-solid fa-heart-pulse text-blue-600 text-8xl"></i>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+<section class="max-w-7xl mx-auto px-4 py-8">
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+    <div class="bg-white p-5 rounded-2xl shadow-sm flex items-center gap-3">
+      <i class="fa-solid fa-truck-fast text-blue-600 text-2xl"></i>
+
+      <div>
+        <h3 class="font-bold">দ্রুত ডেলিভারি</h3>
+        <p class="text-xs text-gray-500">সারা বাংলাদেশ</p>
+      </div>
+    </div>
+
+
+    <div class="bg-white p-5 rounded-2xl shadow-sm flex items-center gap-3">
+      <i class="fa-solid fa-shield-heart text-green-500 text-2xl"></i>
+
+      <div>
+        <h3 class="font-bold">বিশ্বস্ত সেবা</h3>
+        <p class="text-xs text-gray-500">নিরাপদ শপিং</p>
+      </div>
+    </div>
+
+
+    <div class="bg-white p-5 rounded-2xl shadow-sm flex items-center gap-3">
+      <i class="fa-solid fa-headset text-purple-600 text-2xl"></i>
+
+      <div>
+        <h3 class="font-bold">কাস্টমার সাপোর্ট</h3>
+        <p class="text-xs text-gray-500">সহযোগিতার জন্য</p>
+      </div>
+    </div>
+
+
+    <div class="bg-white p-5 rounded-2xl shadow-sm flex items-center gap-3">
+      <i class="fa-solid fa-credit-card text-orange-500 text-2xl"></i>
+
+      <div>
+        <h3 class="font-bold">সহজ পেমেন্ট</h3>
+        <p class="text-xs text-gray-500">বিভিন্ন পেমেন্ট</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+<section class="max-w-7xl mx-auto px-4 py-6">
+
+  <div class="flex justify-between items-center mb-5">
+
+    <div>
+      <h2 class="text-2xl font-bold">
+        জনপ্রিয় ক্যাটাগরি
+      </h2>
+
+      <p class="text-gray-500 text-sm">
+        আপনার প্রয়োজনীয় পণ্য খুঁজে নিন
+      </p>
+    </div>
+
+    <button class="text-blue-600 font-semibold">
+      সব দেখুন →
+    </button>
+
+  </div>
+
+
+  <div class="flex gap-4 overflow-x-auto hide-scrollbar pb-3">
+
+    <div class="min-w-[120px] bg-white rounded-2xl p-5 text-center shadow-sm cursor-pointer hover:shadow-md">
+      <div class="w-14 h-14 mx-auto bg-blue-50 text-blue-600 rounded-full flex items-center justify-center">
+        <i class="fa-solid fa-pills text-xl"></i>
+      </div>
+
+      <p class="mt-3 font-semibold">Medicine</p>
+    </div>
+
+
+    <div class="min-w-[120px] bg-white rounded-2xl p-5 text-center shadow-sm cursor-pointer hover:shadow-md">
+
+      <div class="w-14 h-14 mx-auto bg-pink-50 text-pink-600 rounded-full flex items-center justify-center">
+        <i class="fa-solid fa-person-dress text-xl"></i>
+      </div>
+
+      <p class="mt-3 font-semibold">Women's Care</p>
+
+    </div>
+
+
+    <div class="min-w-[120px] bg-white rounded-2xl p-5 text-center shadow-sm">
+
+      <div class="w-14 h-14 mx-auto bg-purple-50 text-purple-600 rounded-full flex items-center justify-center">
+        <i class="fa-solid fa-person text-xl"></i>
+      </div>
+
+      <p class="mt-3 font-semibold">Men's Care</p>
+
+    </div>
+
+
+    <div class="min-w-[120px] bg-white rounded-2xl p-5 text-center shadow-sm">
+
+      <div class="w-14 h-14 mx-auto bg-yellow-50 text-yellow-600 rounded-full flex items-center justify-center">
+        <i class="fa-solid fa-baby text-xl"></i>
+      </div>
+
+      <p class="mt-3 font-semibold">Baby Care</p>
+
+    </div>
+
+
+    <div class="min-w-[120px] bg-white rounded-2xl p-5 text-center shadow-sm">
+
+      <div class="w-14 h-14 mx-auto bg-green-50 text-green-600 rounded-full flex items-center justify-center">
+        <i class="fa-solid fa-pump-soap text-xl"></i>
+      </div>
+
+      <p class="mt-3 font-semibold">Personal Care</p>
+
+    </div>
+
+
+    <div class="min-w-[120px] bg-white rounded-2xl p-5 text-center shadow-sm">
+
+      <div class="w-14 h-14 mx-auto bg-red-50 text-red-600 rounded-full flex items-center justify-center">
+        <i class="fa-solid fa-kit-medical text-xl"></i>
+      </div>
+
+      <p class="mt-3 font-semibold">First Aid</p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+<section id="products" class="max-w-7xl mx-auto px-4 py-8">
+
+  <div class="flex justify-between items-center mb-5">
+
+    <div>
+      <h2 class="text-2xl font-bold">
+        জনপ্রিয় পণ্য
+      </h2>
+
+      <p class="text-gray-500 text-sm">
+        আপনার প্রয়োজনীয় পণ্য
+      </p>
+    </div>
+
+    <button class="text-blue-600 font-semibold">
+      View All →
+    </button>
+
+  </div>
+
+
+  <div
+    id="productGrid"
+    class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+
+    <!-- Product 1 -->
+    <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm"
+         data-name="Vitamin C">
+
+      <div class="h-40 bg-gray-50 flex items-center justify-center">
+
+        <i class="fa-solid fa-capsules text-6xl text-blue-500"></i>
+
+      </div>
+
+      <div class="p-4">
+
+        <span class="text-xs text-green-600 bg-green-50 px-2 py-1 rounded">
+          In Stock
+        </span>
+
+        <h3 class="font-bold mt-3">
+          Vitamin C
+        </h3>
+
+        <p class="text-xs text-gray-500 mt-1">
+          Health Supplement
+        </p>
+
+        <div class="flex items-center justify-between mt-4">
+
+          <span class="text-lg font-bold text-blue-600">
+            ৳250
+          </span>
+
+          <button
+            onclick="addToCart('Vitamin C',250)"
+            class="w-9 h-9 bg-blue-600 text-white rounded-lg">
+
+            <i class="fa-solid fa-cart-plus"></i>
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- Product 2 -->
+    <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm"
+         data-name="Personal Care">
+
+      <div class="h-40 bg-pink-50 flex items-center justify-center">
+
+        <i class="fa-solid fa-pump-soap text-6xl text-pink-500"></i>
+
+      </div>
+
+      <div class="p-4">
+
+        <span class="text-xs text-green-600 bg-green-50 px-2 py-1 rounded">
+          In Stock
+        </span>
+
+        <h3 class="font-bold mt-3">
+          Personal Care
+        </h3>
+
+        <p class="text-xs text-gray-500 mt-1">
+          Personal Care Product
+        </p>
+
+        <div class="flex items-center justify-between mt-4">
+
+          <span class="text-lg font-bold text-blue-600">
+            ৳180
+          </span>
+
+          <button
+            onclick="addToCart('Personal Care',180)"
+            class="w-9 h-9 bg-blue-600 text-white rounded-lg">
+
+            <i class="fa-solid fa-cart-plus"></i>
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- Product 3 -->
+    <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm"
+         data-name="Baby Care">
+
+      <div class="h-40 bg-yellow-50 flex items-center justify-center">
+
+        <i class="fa-solid fa-baby text-6xl text-yellow-500"></i>
+
+      </div>
+
+      <div class="p-4">
+
+        <span class="text-xs text-green-600 bg-green-50 px-2 py-1 rounded">
+          In Stock
+        </span>
+
+        <h3 class="font-bold mt-3">
+          Baby Care
+        </h3>
+
+        <p class="text-xs text-gray-500 mt-1">
+          Baby Care Product
+        </p>
+
+        <div class="flex items-center justify-between mt-4">
+
+          <span class="text-lg font-bold text-blue-600">
+            ৳320
+          </span>
+
+          <button
+            onclick="addToCart('Baby Care',320)"
+            class="w-9 h-9 bg-blue-600 text-white rounded-lg">
+
+            <i class="fa-solid fa-cart-plus"></i>
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- Product 4 -->
+    <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm"
+         data-name="First Aid Kit">
+
+      <div class="h-40 bg-red-50 flex items-center justify-center">
+
+        <i class="fa-solid fa-kit-medical text-6xl text-red-500"></i>
+
+      </div>
+
+      <div class="p-4">
+
+        <span class="text-xs text-green-600 bg-green-50 px-2 py-1 rounded">
+          In Stock
+        </span>
+
+        <h3 class="font-bold mt-3">
+          First Aid Kit
+        </h3>
+
+        <p class="text-xs text-gray-500 mt-1">
+          Emergency Care
+        </p>
+
+        <div class="flex items-center justify-between mt-4">
+
+          <span class="text-lg font-bold text-blue-600">
+            ৳450
+          </span>
+
+          <button
+            onclick="addToCart('First Aid Kit',450)"
+            class="w-9 h-9 bg-blue-600 text-white rounded-lg">
+
+            <i class="fa-solid fa-cart-plus"></i>
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= BANNER ================= -->
+<section class="max-w-7xl mx-auto px-4 py-8">
+
+  <div class="bg-gradient-to-r from-green-500 to-emerald-600 rounded-3xl p-7 md:p-10 text-white">
+
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+
+      <div>
+
+        <p class="text-sm opacity-90">
+          CareOnline Special
+        </p>
+
+        <h2 class="text-2xl md:text-3xl font-bold mt-1">
+          স্বাস্থ্যসেবা এখন আপনার হাতের মুঠোয় 💚
+        </h2>
+
+        <p class="mt-2 opacity-90">
+          প্রয়োজনীয় Health & Personal Care Products এক জায়গায়।
+        </p>
+
+      </div>
+
+      <button
+        onclick="scrollToProducts()"
+        class="bg-white text-green-600 px-6 py-3 rounded-xl font-bold">
+
+        Shop Now
+
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-gray-900 text-gray-300 mt-10">
+
+  <div class="max-w-7xl mx-auto px-4 py-12">
+
+    <div class="grid md:grid-cols-4 gap-8">
+
+      <div>
+
+        <h2 class="text-2xl font-bold text-white">
+          Care<span class="text-green-400">Online</span>
+        </h2>
+
+        <p class="mt-3 text-sm leading-6">
+          আপনার প্রয়োজনীয় স্বাস্থ্য ও Personal Care
+          পণ্য সহজে খুঁজে পাওয়ার একটি অনলাইন প্ল্যাটফর্ম।
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3 class="text-white font-bold mb-4">
+          Quick Links
+        </h3>
+
+        <ul class="space-y-2 text-sm">
+
+          <li><a href="#" class="hover:text-white">Home</a></li>
+          <li><a href="#" class="hover:text-white">Products</a></li>
+          <li><a href="#" class="hover:text-white">Categories</a></li>
+          <li><a href="#" class="hover:text-white">About Us</a></li>
+
+        </ul>
+
+      </div>
+
+
+      <div>
+
+        <h3 class="text-white font-bold mb-4">
+          Customer Care
+        </h3>
+
+        <ul class="space-y-2 text-sm">
+
+          <li>Order Tracking</li>
+          <li>Delivery Information</li>
+          <li>Return Policy</li>
+          <li>Contact Us</li>
+
+        </ul>
+
+      </div>
+
+
+      <div>
+
+        <h3 class="text-white font-bold mb-4">
+          Contact
+        </h3>
+
+        <p class="text-sm mb-2">
+          <i class="fa-solid fa-phone mr-2"></i>
+          +880 1XXXXXXXXX
+        </p>
+
+        <p class="text-sm">
+          <i class="fa-solid fa-envelope mr-2"></i>
+          support@careonline.com
+        </p>
+
+        <div class="flex gap-3 mt-5">
+
+          <a class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+
+          <a class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+
+          <a class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="border-t border-gray-800 mt-10 pt-6 text-center text-sm">
+
+      © 2026 CareOnline. All Rights Reserved.
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<!-- ================= MOBILE BOTTOM NAV ================= -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t z-50">
+
+  <div class="grid grid-cols-4">
+
+    <a href="#" class="text-center py-3 text-blue-600">
+
+      <i class="fa-solid fa-house block"></i>
+
+      <span class="text-xs">
+        Home
+      </span>
+
+    </a>
+
+
+    <a href="#products" class="text-center py-3 text-gray-500">
+
+      <i class="fa-solid fa-box block"></i>
+
+      <span class="text-xs">
+        Products
+      </span>
+
+    </a>
+
+
+    <button onclick="openCart()"
+            class="text-center py-3 text-gray-500">
+
+      <i class="fa-solid fa-cart-shopping block"></i>
+
+      <span class="text-xs">
+        Cart
+      </span>
+
+    </button>
+
+
+    <a href="#" class="text-center py-3 text-gray-500">
+
+      <i class="fa-regular fa-user block"></i>
+
+      <span class="text-xs">
+        Account
+      </span>
+
+    </a>
+
+  </div>
+
+</nav>
+
+
+<!-- ================= CART MODAL ================= -->
+<div
+  id="cartModal"
+  class="hidden fixed inset-0 bg-black/50 z-[100] flex items-end md:items-center justify-center">
+
+  <div class="bg-white w-full md:max-w-md md:rounded-2xl rounded-t-3xl p-5">
+
+    <div class="flex justify-between items-center">
+
+      <h2 class="text-xl font-bold">
+        আপনার Cart 🛒
+      </h2>
+
+      <button onclick="closeCart()"
+              class="text-gray-500 text-xl">
+
+        <i class="fa-solid fa-xmark"></i>
+
+      </button>
+
+    </div>
+
+    <div id="cartItems" class="mt-5">
+
+      <p class="text-center text-gray-500 py-8">
+        Cart এখন খালি।
+      </p>
+
+    </div>
+
+    <div class="border-t mt-4 pt-4">
+
+      <div class="flex justify-between font-bold">
+
+        <span>
+          Total
+        </span>
+
+        <span id="cartTotal">
+          ৳0
+        </span>
+
+      </div>
+
+      <button
+        class="w-full mt-4 bg-blue-600 text-white py-3 rounded-xl font-bold">
+
+        Checkout
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+  // ================= CART =================
+
+  let cart = [];
+
+  function addToCart(name, price) {
+
+    cart.push({
+      name: name,
+      price: price
+    });
+
+    updateCart();
+
+    alert(name + " Cart-এ যোগ হয়েছে ✅");
+  }
+
+
+  function updateCart() {
+
+    document.getElementById("cartCount").innerText = cart.length;
+
+    const cartItems = document.getElementById("cartItems");
+
+    if (cart.length === 0) {
+
+      cartItems.innerHTML = `
+        <p class="text-center text-gray-500 py-8">
+          Cart এখন খালি।
+        </p>
+      `;
+
+      document.getElementById("cartTotal").innerText = "৳0";
+
+      return;
+    }
+
+
+    let total = 0;
+
+    cartItems.innerHTML = cart.map((item, index) => {
+
+      total += item.price;
+
+      return `
+        <div class="flex justify-between items-center border-b py-3">
+
+          <div>
+
+            <h3 class="font-semibold">
+              ${item.name}
+            </h3>
+
+            <p class="text-blue-600">
+              ৳${item.price}
+            </p>
+
+          </div>
+
+          <button
+            onclick="removeFromCart(${index})"
+            class="text-red-500">
+
+            <i class="fa-solid fa-trash"></i>
+
+          </button>
+
+        </div>
+      `;
+
+    }).join("");
+
+
+    document.getElementById("cartTotal").innerText = "৳" + total;
+
+  }
+
+
+  function removeFromCart(index) {
+
+    cart.splice(index, 1);
+
+    updateCart();
+
+  }
+
+
+  function openCart() {
+
+    document.getElementById("cartModal")
+      .classList.remove("hidden");
+
+  }
+
+
+  function closeCart() {
+
+    document.getElementById("cartModal")
+      .classList.add("hidden");
+
+  }
+
+
+  // ================= SEARCH =================
+
+  function searchProducts() {
+
+    const query =
+      document.getElementById("searchInput")
+      .value
+      .toLowerCase();
+
+    filterProducts(query);
+
+  }
+
+
+  function mobileSearchProducts() {
+
+    const query =
+      document.getElementById("mobileSearchInput")
+      .value
+      .toLowerCase();
+
+    filterProducts(query);
+
+  }
+
+
+  function filterProducts(query) {
+
+    const products =
+      document.querySelectorAll(".product-card");
+
+    products.forEach(product => {
+
+      const name =
+        product.dataset.name.toLowerCase();
+
+      if (name.includes(query)) {
+
+        product.style.display = "block";
+
+      } else {
+
+        product.style.display = "none";
+
+      }
+
+    });
+
+    scrollToProducts();
+
+  }
+
+
+  // ================= SCROLL =================
+
+  function scrollToProducts() {
+
+    document
+      .getElementById("products")
+      .scrollIntoView({
+        behavior: "smooth"
+      });
+
+  }
+
+
+  // ================= ENTER SEARCH =================
+
+  document.addEventListener("keydown", function(e) {
+
+    if (e.key === "Enter") {
+
+      if (
+        document.activeElement.id === "searchInput"
+      ) {
+
+        searchProducts();
+
+      }
+
+      if (
+        document.activeElement.id === "mobileSearchInput"
+      ) {
+
+        mobileSearchProducts();
+
+      }
+
+    }
+
+  });
+
+</script>
+
+</body>
+</html>

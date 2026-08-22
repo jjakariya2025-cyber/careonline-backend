@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>My Account — CareOnline</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+  <style>
+
+    * {
+      font-family: 'Hind Siliguri', sans-serif;
+    }
+
+    body {
+      background: #f7fafc;
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header class="bg-white shadow-sm">
+
+  <div
+    class="max-w-7xl mx-auto px-4 py-4
+           flex justify-between items-center">
+
+    <a href="index.html"
+       class="flex items-center gap-2">
+
+      <div
+        class="w-11 h-11 bg-blue-600
+               rounded-xl flex items-center
+               justify-center text-white">
+
+        <i class="fa-solid fa-heart-pulse"></i>
+
+      </div>
+
+      <h1 class="text-xl font-bold
+                 text-blue-600">
+
+        Care<span class="text-green-500">
+          Online
+        </span>
+
+      </h1>
+
+    </a>
+
+
+    <button
+      onclick="logout()"
+      class="text-red-500 font-semibold">
+
+      <i class="fa-solid fa-right-from-bracket"></i>
+
+      Logout
+
+    </button>
+
+  </div>
+
+</header>
+
+
+
+<!-- ACCOUNT -->
+
+<section class="max-w-7xl mx-auto
+                px-4 py-8">
+
+  <div class="grid md:grid-cols-3 gap-6">
+
+
+    <!-- PROFILE -->
+
+    <div
+      class="bg-white rounded-2xl
+             shadow-sm p-6">
+
+      <div class="text-center">
+
+        <div
+          class="w-20 h-20 mx-auto
+                 rounded-full
+                 bg-blue-100
+                 text-blue-600
+                 flex items-center
+                 justify-center">
+
+          <i class="fa-solid fa-user
+                    text-3xl"></i>
+
+        </div>
+
+
+        <h2
+          id="userName"
+          class="text-xl font-bold mt-4">
+
+          Customer
+
+        </h2>
+
+
+        <p
+          id="userPhone"
+          class="text-gray-500">
+
+          01XXXXXXXXX
+
+        </p>
+
+      </div>
+
+
+      <div class="mt-6 space-y-2">
+
+        <button
+          class="w-full text-left
+                 bg-blue-50
+                 text-blue-600
+                 p-3 rounded-xl
+                 font-semibold">
+
+          <i class="fa-solid fa-user mr-2"></i>
+
+          My Profile
+
+        </button>
+
+
+        <button
+          class="w-full text-left
+                 p-3 rounded-xl
+                 hover:bg-gray-50">
+
+          <i class="fa-solid fa-box mr-2"></i>
+
+          My Orders
+
+        </button>
+
+
+        <button
+          class="w-full text-left
+                 p-3 rounded-xl
+                 hover:bg-gray-50">
+
+          <i class="fa-solid fa-heart mr-2"></i>
+
+          Wishlist
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- CONTENT -->
+
+    <div class="md:col-span-2 space-y-6">
+
+
+      <!-- Welcome -->
+
+      <div
+        class="bg-gradient-to-r
+               from-blue-600
+               to-green-500
+               text-white
+               rounded-2xl p-6">
+
+        <p class="text-blue-100">
+
+          Welcome back 👋
+
+        </p>
+
+        <h2
+          id="welcomeName"
+          class="text-2xl font-bold mt-1">
+
+          Customer
+
+        </h2>
+
+        <p class="mt-2 text-sm
+                  text-blue-50">
+
+          CareOnline থেকে আপনার
+          প্রয়োজনীয় পণ্য সহজে অর্ডার করুন।
+
+        </p>
+
+      </div>
+
+
+
+      <!-- ORDER -->
+
+      <div
+        class="bg-white rounded-2xl
+               shadow-sm p-6">
+
+        <div class="flex justify-between">
+
+          <h2 class="text-xl font-bold">
+
+            Recent Orders
+
+          </h2>
+
+          <span class="text-blue-600
+                       text-sm">
+
+            View All
+
+          </span>
+
+        </div>
+
+
+        <div
+          class="mt-6
+                 border border-gray-100
+                 rounded-xl p-5">
+
+          <div
+            class="flex justify-between
+                   items-center">
+
+            <div>
+
+              <p class="font-bold">
+
+                Order #CO-102548
+
+              </p>
+
+              <p class="text-sm
+                        text-gray-500">
+
+                Vitamin C × 1
+
+              </p>
+
+            </div>
+
+
+            <span
+              class="bg-yellow-50
+                     text-yellow-600
+                     px-3 py-1
+                     rounded-full
+                     text-sm">
+
+              Processing
+
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- QUICK ACTIONS -->
+
+      <div
+        class="grid grid-cols-2
+               gap-4">
+
+
+        <a href="products.html"
+           class="bg-white
+                  rounded-2xl
+                  shadow-sm p-5
+                  hover:shadow-md">
+
+          <i
+            class="fa-solid fa-bag-shopping
+                   text-blue-600 text-2xl">
+          </i>
+
+          <h3 class="font-bold mt-3">
+
+            Shop Now
+
+          </h3>
+
+          <p class="text-sm
+                    text-gray-500">
+
+            Products দেখুন
+
+          </p>
+
+        </a>
+
+
+        <a href="checkout.html"
+           class="bg-white
+                  rounded-2xl
+                  shadow-sm p-5
+                  hover:shadow-md">
+
+          <i
+            class="fa-solid fa-cart-shopping
+                   text-green-600 text-2xl">
+          </i>
+
+          <h3 class="font-bold mt-3">
+
+            My Cart
+
+          </h3>
+
+          <p class="text-sm
+                    text-gray-500">
+
+            Cart দেখুন
+
+          </p>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<script>
+
+  // Load User
+
+  const userData =
+    localStorage.getItem(
+      "careOnlineUser"
+    );
+
+
+  if (userData) {
+
+    const user =
+      JSON.parse(userData);
+
+
+    document.getElementById(
+      "userName"
+    ).innerText = user.name;
+
+
+    document.getElementById(
+      "userPhone"
+    ).innerText = user.phone;
+
+
+    document.getElementById(
+      "welcomeName"
+    ).innerText =
+      user.name;
+
+  }
+
+
+
+  // Logout
+
+  function logout() {
+
+    localStorage.removeItem(
+      "careOnlineLoggedIn"
+    );
+
+    localStorage.removeItem(
+      "careOnlineUser"
+    );
+
+    localStorage.removeItem(
+      "careOnlinePhone"
+    );
+
+
+    window.location.href =
+      "login.html";
+
+  }
+
+</script>
+
+</body>
+
+</html>
